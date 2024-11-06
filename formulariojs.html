@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de alumnos</title>
+    <!-- Bootstrap CSS desde la carpeta local -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style>
+        /* Paleta de colores */
+        body {
+            background-color: #FFFFFF; /* Blanco de fondo */
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #004182; /* Azul oscuro */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;  /* Alinea verticalmente los elementos al centro */
+            justify-content: space-between; /* Separa las imágenes a los extremos */
+        }
+        .header-text{
+            text-align: center;
+            flex-grow: 1; /* Permite que el texto ocupe el espacio entre las imágenes */
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .header p {
+            font-size: 18px;
+        }
+        .left-image,
+        .right-image {
+            flex-shrink: 0; /* Impide que las imágenes se reduzcan demasiado */
+        }
+
+        .form-container {
+            background-color: #00f66b; /* Color del contenedor */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 10px; /* Espaciado interno */
+            margin: 20px; /* Espaciado externo */
+        }
+
+        .form-registro {
+            background-color: #BDC3C7; /* Color del contenedor */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 50px; /* Espaciado interno */
+            margin: 1px; /* Espaciado externo */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cabecera -->
+<div class="header">
+    <img src="tecnmlogo.png" alt="teclogo" class="left-image" width="100px">
+    <div class="header-text">
+        <h1>TECNOLÓGICO NACIONAL DE MÉXICO</h1>
+        <p>Registro de alumnos</p>
+    </div>
+    <img src="itcuautla.png" alt="itlogo" class="right-image" width="100px">
+</div>
+
+
+        <!-- Contenido aquí -->
+        <div class="container mt-4">
+            <div class="form-container">
+                <div class="container mt-4">
+                    <div class="form-registro">
+                        <form class="row g-3">
+                            
+                            <div>
+                                <b>Datos del alumno</b>
+                            </div>
+                            <!--NOMBRE-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="nombre" placeholder="Luis Pérez">
+                                    <label for="floatingInput">Nombre</label>
+                                </div>
+                            </div>
+
+                            <!--PATERNO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="apaterno" placeholder="Pérez">
+                                    <label for="floatingInput">Apellido paterno</label>
+                                </div>
+                            </div>
+
+                            <!--MATERNO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="amaterno" placeholder="Gómez">
+                                    <label for="floatingInput">Apellido materno</label>
+                                </div>
+                            </div>
+
+                            <!--CARRERA-->
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Carrera</option>
+                                <option value="1">Sistemas</option>
+                                <option value="2">Electrónica</option>
+                                <option value="3">Mecatrónica</option>
+                                <option value="4">Gestión empresarial</option>
+                                <option value="5">Civil</option>
+                                <option value="6">Contador</option>
+                                <option value="7">Maestro/Administrativo</option>
+                              </select>
+
+                            <!--CARRERA-->
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Semestre</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                            </select>
+                            
+                            <!--CORREO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="correo" placeholder="control@cuautla.tecnm.mx">
+                                    <label for="floatingInput">Correo institucional</label>
+                                </div>
+                            </div>
+
+                            <!--CORREO 2-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="correo2" placeholder="correo@correo.com">
+                                    <label for="floatingInput">Correo personal</label>
+                                </div>
+                            </div>
+
+                            
+                            <!--TELÉFONO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="telefono" placeholder="1234">
+                                    <label for="floatingInput">Teléfono celular</label>
+                                </div>
+                            </div>
+
+                            <!--TELÉFONO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="telefono2" placeholder="1234">
+                                    <label for="floatingInput">Teléfono fijo</label>
+                                </div>
+                            </div>
+                            
+                            <!--GÉNERO-->
+                            <div class="col-md-4">
+                                <label class="form-label"><b>Género</b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="genero" id="hombre" value="hombre">
+                                    <label class="form-check-label" for="hombre">Hombre</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="genero" id="mujer" value="mujer">
+                                    <label class="form-check-label" for="mujer">Mujer</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="genero" id="otrogenero" value="otro">
+                                    <label class="form-check-label" for="mujer">Otro</label>
+                                </div>
+                            </div>
+
+                            <!--ESTADO CIVIL-->
+                            <div class="col-md-4">
+                                <label class="form-label"><b>Estado civil</b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="estadoCivil" id="soltero" value="soltero">
+                                    <label class="form-check-label" for="soltero">Soltero</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="estadoCivil" id="casado" value="casado">
+                                    <label class="form-check-label" for="casado">Casado</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="estadoCivil" id="casado" value="otroestado">
+                                    <label class="form-check-label" for="casado">Otro</label>
+                                </div>
+                            </div>
+
+                            <hr style="border: 2px solid #000000;">
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento">
+                                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                                </div>
+                            </div>
+
+                            <!--CURP-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="curp" placeholder="Pérez">
+                                    <label for="floatingInput">CURP</label>
+                                </div>
+                            </div>
+
+                            <!--NS-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="nss" placeholder="Pérez">
+                                    <label for="floatingInput">NSS</label>
+                                </div>
+                            </div>
+                            <hr style="border: 2px solid #000000;">
+                            <!--DIRECIÓN-->
+                            <div>
+                                <b>Dirección</b>
+                            </div>
+                            <!--calle-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="calle" placeholder="Pérez">
+                                    <label for="floatingInput">Calle</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="num" placeholder="Pérez">
+                                    <label for="floatingInput">Número</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="cp" placeholder="Pérez">
+                                    <label for="floatingInput">Código Postal</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="colonia" placeholder="Pérez">
+                                    <label for="floatingInput">Colonia</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="ciudad" placeholder="Pérez">
+                                    <label for="floatingInput">Ciudad</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="estado" placeholder="Pérez">
+                                    <label for="floatingInput">Estado</label>
+                                </div>
+                            </div>
+
+                            <hr style="border: 2px solid #000000;">
+                            <button type="button" class="btn btn-outline-success">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS desde la carpeta local -->
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

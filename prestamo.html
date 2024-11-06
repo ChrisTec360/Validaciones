@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préstamo de libros</title>
+    <!-- Bootstrap CSS desde la carpeta local -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <style>
+        /* Paleta de colores */
+        body {
+            background-color: #FFFFFF; /* Blanco de fondo */
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #004182; /* Azul oscuro */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;  /* Alinea verticalmente los elementos al centro */
+            justify-content: space-between; /* Separa las imágenes a los extremos */
+        }
+        .header-text{
+            text-align: center;
+            flex-grow: 1; /* Permite que el texto ocupe el espacio entre las imágenes */
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .header p {
+            font-size: 18px;
+        }
+        .left-image,
+        .right-image {
+            flex-shrink: 0; /* Impide que las imágenes se reduzcan demasiado */
+        }
+
+        .form-container {
+            background-color: #00f66b; /* Color del contenedor */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 10px; /* Espaciado interno */
+            margin: 20px; /* Espaciado externo */
+        }
+
+        .form-registro {
+            background-color: #BDC3C7; /* Color del contenedor */
+            border-radius: 15px; /* Bordes redondeados */
+            padding: 50px; /* Espaciado interno */
+            margin: 1px; /* Espaciado externo */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Cabecera -->
+<div class="header">
+    <img src="tecnmlogo.png" alt="teclogo" class="left-image" width="100px">
+    <div class="header-text">
+        <h1>BIBLIOTECA TECNM</h1>
+        <p>Préstamo de libros</p>
+    </div>
+    <img src="itcuautla.png" alt="itlogo" class="right-image" width="100px">
+</div>
+
+
+        <!-- Contenido aquí -->
+        <div class="container mt-4">
+            <div class="form-container">
+                <div class="container mt-4">
+                    <div class="form-registro">
+                        <form class="row g-3">
+                            
+                            <div>
+                                <b>Datos del alumno</b>
+                            </div>
+                            <!--NOMBRE-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="floatingInput" placeholder="Luis Pérez">
+                                    <label for="floatingInput">Nombre</label>
+                                </div>
+                            </div>
+
+                            <!--PATERNO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="floatingInput" placeholder="Pérez">
+                                    <label for="floatingInput">Apellido paterno</label>
+                                </div>
+                            </div>
+
+                            <!--MATERNO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="floatingInput" placeholder="Gómez">
+                                    <label for="floatingInput">Apellido materno</label>
+                                </div>
+                            </div>
+
+                            <!--CARRERA-->
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Carrera</option>
+                                <option value="1">Sistemas</option>
+                                <option value="2">Electrónica</option>
+                                <option value="3">Mecatrónica</option>
+                                <option value="4">Gestión empresarial</option>
+                                <option value="5">Civil</option>
+                                <option value="6">Contador</option>
+                                <option value="7">Maestro/Administrativo</option>
+                              </select>
+
+                            <!--CARRERA-->
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Semestre</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                            </select>
+                            
+                            <!--CORREO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="control@cuautla.tecnm.mx">
+                                    <label for="floatingInput">Correo institucional</label>
+                                </div>
+                            </div>
+
+                            <!--GÉNERO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <div class="form-group">
+                                        <b>Género</b>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            Hombre
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                            Mujer
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                            <label class="form-check-label" for="flexRadioDefault3">
+                                            Otro
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--TIPO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <div class="form-group">
+                                        <b>Tipo</b>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                            Alumno
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">
+                                            Profesor
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                            <label class="form-check-label" for="flexRadioDefault3">
+                                            Otro
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="border: 2px solid #000000;">
+
+                            <!--LIBRO-->
+                            <div>
+                                <b>Datos del libro</b>
+                            </div>
+
+                            <!--NOMBRE-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="floatingInput" placeholder="NombreLibro">
+                                    <label for="floatingInput">Nombre del libro</label>
+                                </div>
+                            </div>
+
+                            <!--AUTOR-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="name" class="form-control" id="floatingInput" placeholder="Autor">
+                                    <label for="floatingInput">Autor</label>
+                                </div>
+                            </div>
+
+
+                            <!--CÓDIGO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="floatingInput" placeholder="codigo">
+                                    <label for="floatingInput">Código</label>
+                                </div>
+                            </div>
+
+                            <!--EDICIÓN-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="edicion" placeholder="Edicion">
+                                    <label for="edicion">Edición del libro</label>
+                                </div>
+                            </div>
+                            
+                            <!--EDITORIAL-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="editorial" placeholder="Editorial">
+                                    <label for="editorial">Editorial</label>
+                                </div>
+                            </div>
+
+                            <!--AÑO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" id="anoPublicacion" placeholder="2020">
+                                    <label for="anoPublicacion">Año de publicación</label>
+                                </div>
+                            </div>
+
+                            <!--ÁREA-->
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Área</option>
+                                <option value="1">Ciencias básicas</option>
+                                <option value="2">Electrónica</option>
+                                <option value="3">Sistemas</option>
+                                <option value="4">Contaduría</option>
+                                <option value="5">Gestión empresarial</option>
+                                <option value="6">Otro</option>
+                            </select>
+
+                            <!--CONDICIÓN-->
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="Condición del Libro">
+                                    <option selected>Seleccionar condición</option>
+                                    <option value="nuevo">Nuevo</option>
+                                    <option value="bueno">Bueno</option>
+                                    <option value="danado">Dañado</option>
+                                </select>
+                            </div>
+
+                            <!--tipo-->
+                            <div class="col-md-4">
+                                <select class="form-select" aria-label="tipoLibro">
+                                    <option selected>Tipo</option>
+                                    <option value="nuevo">Instituto</option>
+                                    <option value="bueno">Donación</option>
+                                </select>
+                            </div>
+
+                            <!--CORREO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="control@cuautla.tecnm.mx">
+                                    <label for="floatingInput">Correo del prestador</label>
+                                </div>
+                            </div>
+
+                            <!--FECHA DE PRÉSTAMO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="floatingInput" placeholder="fechai">
+                                    <label for="floatingInput">Fecha de préstamo</label>
+                                </div>
+                            </div>
+
+                            <!--FECHA DE REGRESO-->
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3">
+                                    <input type="date" class="form-control" id="floatingInput" placeholder="fechaf">
+                                    <label for="floatingInput">Fecha de regreso</label>
+                                </div>
+                            </div>
+
+                            <!--COMENTARIOS-->
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">Comentarios</label>
+                                </div>
+                            </div>
+
+                            <hr style="border: 2px solid #000000;">
+                            <button type="button" class="btn btn-outline-success">Registrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Bootstrap JS desde la carpeta local -->
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
