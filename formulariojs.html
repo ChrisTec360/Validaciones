@@ -71,7 +71,7 @@
             <div class="form-container">
                 <div class="container mt-4">
                     <div class="form-registro">
-                        <form class="row g-3">
+                        <form class="row g-3" id="form-registro">
                             
                             <div>
                                 <b>Datos del alumno</b>
@@ -79,7 +79,7 @@
                             <!--NOMBRE-->
                             <div class="col-md-4">
                                 <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="nombre" placeholder="Luis Pérez">
+                                    <input type="text" class="form-control" id="nombre" placeholder="Luis Pérez">
                                     <label for="floatingInput">Nombre</label>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                             <!--PATERNO-->
                             <div class="col-md-4">
                                 <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="apaterno" placeholder="Pérez">
+                                    <input type="text" class="form-control" id="apaterno" placeholder="Pérez">
                                     <label for="floatingInput">Apellido paterno</label>
                                 </div>
                             </div>
@@ -95,13 +95,13 @@
                             <!--MATERNO-->
                             <div class="col-md-4">
                                 <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="amaterno" placeholder="Gómez">
+                                    <input type="text" class="form-control" id="amaterno" placeholder="Gómez">
                                     <label for="floatingInput">Apellido materno</label>
                                 </div>
                             </div>
 
                             <!--CARRERA-->
-                            <select class="form-select" aria-label="Default select example">
+                            <select id="carrera" class="form-select" aria-label="Default select example">
                                 <option selected>Carrera</option>
                                 <option value="1">Sistemas</option>
                                 <option value="2">Electrónica</option>
@@ -113,7 +113,7 @@
                               </select>
 
                             <!--CARRERA-->
-                            <select class="form-select" aria-label="Default select example">
+                            <select id="semestre" class="form-select" aria-label="Default select example">
                                 <option selected>Semestre</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -164,7 +164,7 @@
                             </div>
                             
                             <!--GÉNERO-->
-                            <div class="col-md-4">
+                            <div class="col-md-4" id="genero">
                                 <label class="form-label"><b>Género</b></label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="genero" id="hombre" value="hombre">
@@ -181,7 +181,7 @@
                             </div>
 
                             <!--ESTADO CIVIL-->
-                            <div class="col-md-4">
+                            <div class="col-md-4" id="estadocivil">
                                 <label class="form-label"><b>Estado civil</b></label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="estadoCivil" id="soltero" value="soltero">
@@ -269,14 +269,183 @@
                             </div>
 
                             <hr style="border: 2px solid #000000;">
-                            <button type="button" class="btn btn-outline-success">Registrar</button>
+                            <button type="submit" class="btn btn-outline-success">Registrar</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.getElementById("form-registro");
+              
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Evita el envío automático para validar manualmente
+                  
+                    // Variables para los campos
+                    const nombre = document.getElementById("nombre");
+                    const apellido = document.getElementById("apaterno");
+                    const carrera = document.getElementById("carrera");
+                    const semestre = document.getElementById("semestre");
+                    const correo = document.getElementById("correo");
+                    const correo2 = document.getElementById("correo2");
+                    
+                    const telefono = document.getElementById("telefono");
+                    const telefono2 = document.getElementById("telefono2");
+                    const genero = document.getElementById("genero");
+                    const estadovil = document.getElementById("estadocivil");
+                    const fechaNacimiento = document.getElementById("fechaNacimiento");
+                    const curp = document.getElementById("curp");
+                    
+                    const nss = document.getElementById("nss");
+                    const calle = document.getElementById("calle");
+                    const cp = document.getElementById("cp");
+                    const colonia = document.getElementById("colonia");
+                    const ciudad = document.getElementById("ciudad");
+                    const estado = document.getElementById("estado");
+
+                    let formIsValid = true;
+                  
+                    // Validación del nombre y apellido
+                    if (nombre.value.trim() === "") {
+                        nombre.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        nombre.classList.remove("is-invalid");
+                    }
+                  
+                    if (apellido.value.trim() === "") {
+                        apellido.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        apellido.classList.remove("is-invalid");
+                    }
+                    
+                  
+                    // Validación del correo electrónico
+                    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                    if (!emailPattern.test(correo.value)) {
+                        correo.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        correo.classList.remove("is-invalid");
+                    }
+
+                    const emailPattern2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                    if (!emailPattern2.test(correo.value)) {
+                        correo2.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        correo.classList.remove("is-invalid");
+                    }
+
+                    // Validación de los teléfonos
+                    if (telefono.value.trim() === "" || isNaN(telefono.value) || telefono.value.length < 10 || telefono.value.length > 10) {
+                        telefono.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        telefono.classList.remove("is-invalid");
+                    }
+                  
+                    if (telefono2.value.trim() === "" || isNaN(telefono2.value) || telefono2.value.length < 10 || telefono2.value.length > 10) {
+                        telefono2.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        telefono.classList.remove("is-invalid");
+                    }
+
+                    //GENERO
+                    if (!genero.value.trim()) {
+                        genero.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        genero.classList.remove("is-invalid");
+                    }
+
+                    //ESTADO CIVIL
+                    if (!estadovil.value.trim()) {
+                        estadovil.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        estadovil.classList.remove("is-invalid");
+                    }
+
+                    // Validación de fecha de nacimiento
+                    if (fechaNacimiento.value.trim() === "") {
+                        fechaNacimiento.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        fechaNacimiento.classList.remove("is-invalid");
+                    }
+
+                    // Validación del CURP
+                    if (curp.value.trim() === "" || curp.value.length !== 18) {
+                        curp.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        curp.classList.remove("is-invalid");
+                    }
+
+                    // Validación del NSS
+                    if (nss.value.trim() === "" || isNaN(nss.value) || nss.value.length !== 11) {
+                        nss.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        nss.classList.remove("is-invalid");
+                    }
+
+                    // Validación de la dirección
+                    if (calle.value.trim() === "") {
+                        calle.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        calle.classList.remove("is-invalid");
+                    }
+
+                    if (cp.value.trim() === "" || isNaN(cp.value) || cp.value.length !== 5) {
+                        cp.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        cp.classList.remove("is-invalid");
+                    }
+
+                    if (colonia.value.trim() === "") {
+                        colonia.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        colonia.classList.remove("is-invalid");
+                    }
+
+                    if (ciudad.value.trim() === "") {
+                        ciudad.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        ciudad.classList.remove("is-invalid");
+                    }
+
+                    if (estado.value.trim() === "") {
+                        estado.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        estado.classList.remove("is-invalid");
+                    }
+
+
+                    // Si algún campo es inválido, muestra una alerta
+                    if (!formIsValid) {
+                        alert("Por favor, completa todos los campos correctamente.");
+                    } else {
+                        alert("Formulario enviado correctamente");
+                        form.submit(); // Envía el formulario si es válido
+                    }
+                });
+            });
+        </script>
+
         <!-- Bootstrap JS desde la carpeta local -->
         <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="javascript/script.js"></script>
 </body>
 </html>
