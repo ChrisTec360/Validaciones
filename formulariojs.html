@@ -6,6 +6,7 @@
     <title>Registro de alumnos</title>
     <!-- Bootstrap CSS desde la carpeta local -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="tinymce/js/tinymce/tinymce.min.js"></script>
     <style>
         /* Paleta de colores */
         body {
@@ -443,9 +444,24 @@
                 });
             });
         </script>
-
+    <form action="#" method="POST">
+        <label for="miTextarea">Contenido:</label>
+        <textarea id="miTextarea" name="contenido"></textarea>
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
         <!-- Bootstrap JS desde la carpeta local -->
+        <script>
+            tinymce.init({
+                selector: '#miTextarea',  // Aplica el editor al textarea
+                language: 'es',  // Cambia el idioma a español
+                language_url: '/tinymce/js/tinymce/langs/es.js'  // Ruta al archivo de idioma español
+            });
+        </script>
+        
         <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="javascript/script.js"></script>
+        
+  
 </body>
 </html>
