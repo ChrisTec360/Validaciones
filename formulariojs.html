@@ -8,6 +8,28 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="tinymce/js/tinymce/tinymce.min.js"></script>
     <style>
+        /* Modificar el tamaño de las columnas */
+        .col-md-4 {
+            max-width: 200px; /* Puedes reducir el valor para que los campos sean más pequeños */
+        }
+
+        /* Reducir el padding y márgenes en los inputs */
+        .form-floating .form-control {
+            padding: 5px; /* Reduce el padding dentro del campo */
+            font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+        }
+
+        /* Ajustar el contenedor del formulario */
+        .form-container {
+            padding: 5px; /* Reduce el padding del contenedor */
+            margin: 10px; /* Reduce los márgenes */
+        }
+
+        /* Ajustar el botón */
+        .btn {
+            font-size: 0.8rem; /* Reducir el tamaño del botón */
+            padding: 5px 10px; /* Reducir el padding del botón */
+        }
         /* Paleta de colores */
         body {
             background-color: #FFFFFF; /* Blanco de fondo */
@@ -40,30 +62,36 @@
         }
 
         .form-container {
-            background-color: #00f66b; /* Color del contenedor */
+            background-color: #ffffff; /* Color del contenedor */
             border-radius: 15px; /* Bordes redondeados */
-            padding: 10px; /* Espaciado interno */
-            margin: 20px; /* Espaciado externo */
+            padding: 0px; /* Espaciado interno */
+            margin: 0px; /* Espaciado externo */
         }
 
         .form-registro {
-            background-color: #BDC3C7; /* Color del contenedor */
+            background-color: #aaff79; /* Color del contenedor */
             border-radius: 15px; /* Bordes redondeados */
-            padding: 50px; /* Espaciado interno */
-            margin: 1px; /* Espaciado externo */
+            padding: 10px; /* Espaciado interno */
+            margin: 5px; /* Espaciado externo */
         }
+
+        .custom-height {
+    padding: 0.5rem;  /* Reduce el padding interno */
+    height: 20px;     /* Ajusta la altura */
+}
+
     </style>
 </head>
 <body>
 
 <!-- Cabecera -->
 <div class="header">
-    <img src="tecnmlogo.png" alt="teclogo" class="left-image" width="100px">
+    <img src="/imgs/tecnmlogo.png" alt="teclogo" class="left-image" width="100px">
     <div class="header-text">
         <h1>TECNOLÓGICO NACIONAL DE MÉXICO</h1>
         <p>Registro de alumnos</p>
     </div>
-    <img src="itcuautla.png" alt="itlogo" class="right-image" width="100px">
+    <img src="/imgs/itcuautla.png" alt="itlogo" class="right-image" width="100px">
 </div>
 
 
@@ -79,30 +107,42 @@
                             </div>
                             <!--NOMBRE-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="nombre" placeholder="Luis Pérez">
-                                    <label for="floatingInput">Nombre</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="nombre" placeholder="Nombre (s)">
                                 </div>
                             </div>
 
                             <!--PATERNO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="apaterno" placeholder="Pérez">
-                                    <label for="floatingInput">Apellido paterno</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="apaterno" placeholder="Apellido paterno">
                                 </div>
                             </div>
 
                             <!--MATERNO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="amaterno" placeholder="Gómez">
-                                    <label for="floatingInput">Apellido materno</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="amaterno" placeholder="Apellido materno">
+                                </div>
+                            </div>
+
+                            <!--CORREO-->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control custom-height" id="correo" placeholder="control@cuautla.tecnm.mx">
+                                 
+                                </div>
+                            </div>
+
+                            <!--CORREO 2-->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control custom-height" id="correo2" placeholder="Email personal">
                                 </div>
                             </div>
 
                             <!--CARRERA-->
-                            <select id="carrera" class="form-select" aria-label="Default select example">
+                            <select id="carrera" class="form-select w-50" aria-label="Default select example">
                                 <option selected>Carrera</option>
                                 <option value="1">Sistemas</option>
                                 <option value="2">Electrónica</option>
@@ -111,10 +151,10 @@
                                 <option value="5">Civil</option>
                                 <option value="6">Contador</option>
                                 <option value="7">Maestro/Administrativo</option>
-                              </select>
+                            </select>
 
                             <!--CARRERA-->
-                            <select id="semestre" class="form-select" aria-label="Default select example">
+                            <select id="semestre" class="form-select w-50" aria-label="Default select example">
                                 <option selected>Semestre</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -131,21 +171,7 @@
                                 <option value="13">13</option>
                             </select>
                             
-                            <!--CORREO-->
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="correo" placeholder="control@cuautla.tecnm.mx">
-                                    <label for="floatingInput">Correo institucional</label>
-                                </div>
-                            </div>
-
-                            <!--CORREO 2-->
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="correo2" placeholder="correo@correo.com">
-                                    <label for="floatingInput">Correo personal</label>
-                                </div>
-                            </div>
+                
 
                             
                             <!--TELÉFONO-->
@@ -199,27 +225,26 @@
                             </div>
 
                             <hr style="border: 2px solid #000000;">
-
+<!--
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento">
-                                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                                <div class="mb-3">
+                                Fecha de nacimiento
+
+                                    <input type="date" class="form-control custom-height" id="fechaNacimiento" placeholder="Fecha de nacimiento">
                                 </div>
                             </div>
-
+-->
                             <!--CURP-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="curp" placeholder="Pérez">
-                                    <label for="floatingInput">CURP</label>
+                                <div class="mb-3">
+                                    <input type="name" class="form-control custom-height" id="curp" placeholder="CURP">
                                 </div>
                             </div>
 
                             <!--NS-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="nss" placeholder="Pérez">
-                                    <label for="floatingInput">NSS</label>
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="nss" placeholder="NSS">
                                 </div>
                             </div>
                             <hr style="border: 2px solid #000000;">
@@ -229,43 +254,38 @@
                             </div>
                             <!--calle-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="calle" placeholder="Pérez">
-                                    <label for="floatingInput">Calle</label>
+                                <div class="mb-3">
+                                    <input type="name" class="form-control custom-height" id="calle" placeholder="Calle y Número">
                                 </div>
                             </div>
+<!--
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="num" placeholder="Pérez">
-                                    <label for="floatingInput">Número</label>
+                                <div class="mb-3">
+                                    <input type="name" class="form-control custom-height" id="num" placeholder="Número">
+                                </div>
+                            </div>-->
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="cp" placeholder="Código Postal">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="cp" placeholder="Pérez">
-                                    <label for="floatingInput">Código Postal</label>
+                                <div class="mb-3">
+                                    <input type="name" class="form-control custom-height" id="colonia" placeholder="Colonia">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="colonia" placeholder="Pérez">
-                                    <label for="floatingInput">Colonia</label>
+                                <div class="mb-3">
+                                    <input type="name" class="form-control custom-height" id="ciudad" placeholder="Ciudad">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="ciudad" placeholder="Pérez">
-                                    <label for="floatingInput">Ciudad</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="estado" placeholder="Pérez">
-                                    <label for="floatingInput">Estado</label>
+                                <div class="mb-3">
+                                    <input type="name" class="form-control custom-height" id="estado" placeholder="Estado"> 
                                 </div>
                             </div>
 
@@ -447,8 +467,8 @@
     <form action="#" method="POST">
         <label for="miTextarea">Contenido:</label>
         <textarea id="miTextarea" name="contenido"></textarea>
-        <br>
-        <button type="submit">Enviar</button>
+     
+       
     </form>
         <!-- Bootstrap JS desde la carpeta local -->
         <script>
