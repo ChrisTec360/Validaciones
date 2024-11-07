@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="tinymce/js/tinymce/tinymce.min.js"></script>
     <style>
+
         /* Modificar el tamaño de las columnas */
         .col-md-4 {
             max-width: 200px; /* Puedes reducir el valor para que los campos sean más pequeños */
@@ -176,17 +177,15 @@
                             
                             <!--TELÉFONO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="telefono" placeholder="1234">
-                                    <label for="floatingInput">Teléfono celular</label>
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="telefono" placeholder="Teléfono celular">
                                 </div>
                             </div>
 
                             <!--TELÉFONO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="telefono2" placeholder="1234">
-                                    <label for="floatingInput">Teléfono fijo</label>
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="telefono2" placeholder="Teléfono fijo">
                                 </div>
                             </div>
                             
@@ -237,7 +236,7 @@
                             <!--CURP-->
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <input type="name" class="form-control custom-height" id="curp" placeholder="CURP">
+                                    <input type="text" class="form-control custom-height" id="curp" placeholder="CURP">
                                 </div>
                             </div>
 
@@ -255,7 +254,7 @@
                             <!--calle-->
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <input type="name" class="form-control custom-height" id="calle" placeholder="Calle y Número">
+                                    <input type="text" class="form-control custom-height" id="calle" placeholder="Calle y Número">
                                 </div>
                             </div>
 <!--
@@ -273,19 +272,19 @@
 
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <input type="name" class="form-control custom-height" id="colonia" placeholder="Colonia">
+                                    <input type="text" class="form-control custom-height" id="colonia" placeholder="Colonia">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <input type="name" class="form-control custom-height" id="ciudad" placeholder="Ciudad">
+                                    <input type="text" class="form-control custom-height" id="ciudad" placeholder="Ciudad">
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <div class="mb-3">
-                                    <input type="name" class="form-control custom-height" id="estado" placeholder="Estado"> 
+                                    <input type="text" class="form-control custom-height" id="estado" placeholder="Estado"> 
                                 </div>
                             </div>
 
@@ -332,17 +331,33 @@
                     // Validación del nombre y apellido
                     if (nombre.value.trim() === "") {
                         nombre.classList.add("is-invalid");
+                        nombre.setCustomValidity("El nombre es obligatorio.");
                         formIsValid = false;
                     } else {
                         nombre.classList.remove("is-invalid");
+                        nombre.setCustomValidity(""); // Resetea el mensaje de error si el campo es válido
                     }
                   
+                    nombre.addEventListener('input', function () {
+                        if (nombre.value.trim() !== "") {
+                            nombre.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
                     if (apellido.value.trim() === "") {
                         apellido.classList.add("is-invalid");
+                        apellido.setCustomValidity("El apellido es obligatorio.");
                         formIsValid = false;
                     } else {
                         apellido.classList.remove("is-invalid");
+                        apellido.setCustomValidity("");
                     }
+
+                    apellido.addEventListener('input', function(){
+                        if(apellido.value.trim() != ""){
+                            apellido.setCustomValidity("");
+                        }
+                    })
                     
                   
                     // Validación del correo electrónico
@@ -355,26 +370,26 @@
                     }
 
                     const emailPattern2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-                    if (!emailPattern2.test(correo.value)) {
+                    if (!emailPattern2.test(correo2.value)) {
                         correo2.classList.add("is-invalid");
                         formIsValid = false;
                     } else {
-                        correo.classList.remove("is-invalid");
+                        correo2.classList.remove("is-invalid");
                     }
 
                     // Validación de los teléfonos
-                    if (telefono.value.trim() === "" || isNaN(telefono.value) || telefono.value.length < 10 || telefono.value.length > 10) {
+                    if (telefono.value.trim() === "" || isNaN(telefono.value) || telefono.value.length != 10) {
                         telefono.classList.add("is-invalid");
                         formIsValid = false;
                     } else {
                         telefono.classList.remove("is-invalid");
                     }
                   
-                    if (telefono2.value.trim() === "" || isNaN(telefono2.value) || telefono2.value.length < 10 || telefono2.value.length > 10) {
+                    if (telefono2.value.trim() === "" || isNaN(telefono2.value) || telefono2.value.length != 10) {
                         telefono2.classList.add("is-invalid");
                         formIsValid = false;
                     } else {
-                        telefono.classList.remove("is-invalid");
+                        telefono2.classList.remove("is-invalid");
                     }
 
                     //GENERO
