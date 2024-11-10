@@ -6,7 +6,31 @@
     <title>Registro de alumnos</title>
     <!-- Bootstrap CSS desde la carpeta local -->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="tinymce/js/tinymce/tinymce.min.js"></script>
     <style>
+
+        /* Modificar el tamaño de las columnas */
+        .col-md-4 {
+            max-width: 200px; /* Puedes reducir el valor para que los campos sean más pequeños */
+        }
+
+        /* Reducir el padding y márgenes en los inputs */
+        .form-floating .form-control {
+            padding: 5px; /* Reduce el padding dentro del campo */
+            font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+        }
+
+        /* Ajustar el contenedor del formulario */
+        .form-container {
+            padding: 5px; /* Reduce el padding del contenedor */
+            margin: 10px; /* Reduce los márgenes */
+        }
+
+        /* Ajustar el botón */
+        .btn {
+            font-size: 0.8rem; /* Reducir el tamaño del botón */
+            padding: 5px 10px; /* Reducir el padding del botón */
+        }
         /* Paleta de colores */
         body {
             background-color: #FFFFFF; /* Blanco de fondo */
@@ -39,30 +63,35 @@
         }
 
         .form-container {
-            background-color: #00f66b; /* Color del contenedor */
+            background-color: #ffffff; /* Color del contenedor */
             border-radius: 15px; /* Bordes redondeados */
-            padding: 10px; /* Espaciado interno */
-            margin: 20px; /* Espaciado externo */
+            padding: 0px; /* Espaciado interno */
+            margin: 0px; /* Espaciado externo */
         }
 
         .form-registro {
-            background-color: #BDC3C7; /* Color del contenedor */
+            background-color: #aaff79; /* Color del contenedor */
             border-radius: 15px; /* Bordes redondeados */
-            padding: 50px; /* Espaciado interno */
-            margin: 1px; /* Espaciado externo */
+            padding: 10px; /* Espaciado interno */
+            margin: 5px; /* Espaciado externo */
         }
+
+        .custom-height {
+    padding: 0.5rem;  /* Reduce el padding interno */
+    height: 20px;     /* Ajusta la altura */
+}
+
     </style>
 </head>
 <body>
 
 <!-- Cabecera -->
 <div class="header">
-    <img src="tecnmlogo.png" alt="teclogo" class="left-image" width="100px">
+    <img src="imgs/tecnmlogo.png" alt="teclogo" class="left-image" width="100px">
     <div class="header-text">
         <h1>TECNOLÓGICO NACIONAL DE MÉXICO</h1>
-        <p>Registro de alumnos</p>
     </div>
-    <img src="itcuautla.png" alt="itlogo" class="right-image" width="100px">
+    <img src="imgs/itcuautla.png" alt="itlogo" class="right-image" width="100px">
 </div>
 
 
@@ -71,51 +100,61 @@
             <div class="form-container">
                 <div class="container mt-4">
                     <div class="form-registro">
-                        <form class="row g-3">
+                        <form class="row g-3" id="form-registro">
                             
                             <div>
                                 <b>Datos del alumno</b>
                             </div>
                             <!--NOMBRE-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="nombre" placeholder="Luis Pérez">
-                                    <label for="floatingInput">Nombre</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="nombre" placeholder="Nombre (s)">
                                 </div>
                             </div>
 
                             <!--PATERNO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="apaterno" placeholder="Pérez">
-                                    <label for="floatingInput">Apellido paterno</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="apaterno" placeholder="Apellido paterno">
                                 </div>
                             </div>
 
                             <!--MATERNO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="amaterno" placeholder="Gómez">
-                                    <label for="floatingInput">Apellido materno</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="amaterno" placeholder="Apellido materno">
+                                </div>
+                            </div>
+
+                            <!--CORREO-->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control custom-height" id="correo" placeholder="control@cuautla.tecnm.mx">
+                                 
+                                </div>
+                            </div>
+
+                            <!--CORREO 2-->
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control custom-height" id="correo2" placeholder="Email personal">
                                 </div>
                             </div>
 
                             <!--CARRERA-->
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Carrera</option>
-                                <option value="1">Sistemas</option>
+                            <select id="carrera" class="form-select w-50" aria-label="Default select example">
+                                <option value="1" selected>Sistemas</option>
                                 <option value="2">Electrónica</option>
                                 <option value="3">Mecatrónica</option>
                                 <option value="4">Gestión empresarial</option>
                                 <option value="5">Civil</option>
                                 <option value="6">Contador</option>
                                 <option value="7">Maestro/Administrativo</option>
-                              </select>
+                            </select>
 
                             <!--CARRERA-->
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Semestre</option>
-                                <option value="1">1</option>
+                            <select id="semestre" class="form-select w-50" aria-label="Default select example">
+                                <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -130,44 +169,28 @@
                                 <option value="13">13</option>
                             </select>
                             
-                            <!--CORREO-->
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="correo" placeholder="control@cuautla.tecnm.mx">
-                                    <label for="floatingInput">Correo institucional</label>
-                                </div>
-                            </div>
-
-                            <!--CORREO 2-->
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="correo2" placeholder="correo@correo.com">
-                                    <label for="floatingInput">Correo personal</label>
-                                </div>
-                            </div>
+                
 
                             
                             <!--TELÉFONO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="telefono" placeholder="1234">
-                                    <label for="floatingInput">Teléfono celular</label>
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="telefono" placeholder="Teléfono celular">
                                 </div>
                             </div>
 
                             <!--TELÉFONO-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="telefono2" placeholder="1234">
-                                    <label for="floatingInput">Teléfono fijo</label>
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="telefono2" placeholder="Teléfono fijo">
                                 </div>
                             </div>
                             
                             <!--GÉNERO-->
-                            <div class="col-md-4">
+                            <div class="col-md-4" id="genero">
                                 <label class="form-label"><b>Género</b></label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="genero" id="hombre" value="hombre">
+                                    <input class="form-check-input" type="radio" name="genero" id="hombre" value="hombre" checked>
                                     <label class="form-check-label" for="hombre">Hombre</label>
                                 </div>
                                 <div class="form-check">
@@ -181,10 +204,10 @@
                             </div>
 
                             <!--ESTADO CIVIL-->
-                            <div class="col-md-4">
+                            <div class="col-md-4" id="estadocivil">
                                 <label class="form-label"><b>Estado civil</b></label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="estadoCivil" id="soltero" value="soltero">
+                                    <input class="form-check-input" type="radio" name="estadoCivil" id="soltero" value="soltero" checked>
                                     <label class="form-check-label" for="soltero">Soltero</label>
                                 </div>
                                 <div class="form-check">
@@ -198,27 +221,26 @@
                             </div>
 
                             <hr style="border: 2px solid #000000;">
-
+<!--
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="date" class="form-control" id="fechaNacimiento" placeholder="Fecha de nacimiento">
-                                    <label for="fechaNacimiento">Fecha de nacimiento</label>
+                                <div class="mb-3">
+                                Fecha de nacimiento
+
+                                    <input type="date" class="form-control custom-height" id="fechaNacimiento" placeholder="Fecha de nacimiento">
                                 </div>
                             </div>
-
+-->
                             <!--CURP-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="curp" placeholder="Pérez">
-                                    <label for="floatingInput">CURP</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="curp" placeholder="CURP">
                                 </div>
                             </div>
 
                             <!--NS-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="nss" placeholder="Pérez">
-                                    <label for="floatingInput">NSS</label>
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="nss" placeholder="NSS">
                                 </div>
                             </div>
                             <hr style="border: 2px solid #000000;">
@@ -228,56 +250,325 @@
                             </div>
                             <!--calle-->
                             <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="calle" placeholder="Pérez">
-                                    <label for="floatingInput">Calle</label>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="calle" placeholder="Calle y Número">
+                                </div>
+                            </div>
+<!--
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="name" class="form-control custom-height" id="num" placeholder="Número">
+                                </div>
+                            </div>-->
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="number" class="form-control custom-height" id="cp" placeholder="Código Postal">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="colonia" placeholder="Colonia">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="ciudad" placeholder="Ciudad">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control custom-height" id="estado" placeholder="Estado"> 
                                 </div>
                             </div>
                             
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="num" placeholder="Pérez">
-                                    <label for="floatingInput">Número</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" id="cp" placeholder="Pérez">
-                                    <label for="floatingInput">Código Postal</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="colonia" placeholder="Pérez">
-                                    <label for="floatingInput">Colonia</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="ciudad" placeholder="Pérez">
-                                    <label for="floatingInput">Ciudad</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3">
-                                    <input type="name" class="form-control" id="estado" placeholder="Pérez">
-                                    <label for="floatingInput">Estado</label>
-                                </div>
-                            </div>
-
+                                <label for="miTextarea">Escribe algo:</label>
+                                <textarea id="miTextarea" name="contenido"></textarea>
+                            
                             <hr style="border: 2px solid #000000;">
-                            <button type="button" class="btn btn-outline-success">Registrar</button>
+                            <button type="submit" class="btn btn-outline-success">Registrar</button>
                         </form>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.getElementById("form-registro");
+              
+                form.addEventListener("submit", function (event) {
+                    event.preventDefault(); // Evita el envío automático para validar manualmente
+                  
+                    // Variables para los campos
+                    const nombre = document.getElementById("nombre");
+                    const apellido = document.getElementById("apaterno");
+                    const carrera = document.getElementById("carrera");
+                    const semestre = document.getElementById("semestre");
+                    const correo = document.getElementById("correo");
+                    const correo2 = document.getElementById("correo2");
+                    
+                    const telefono = document.getElementById("telefono");
+                    const telefono2 = document.getElementById("telefono2");
+                    const genero = document.getElementById("genero");
+                    const estadovil = document.getElementById("estadocivil");
+                    const fechaNacimiento = document.getElementById("fechaNacimiento");
+                    const curp = document.getElementById("curp");
+                    
+                    const nss = document.getElementById("nss");
+                    const calle = document.getElementById("calle");
+                    const cp = document.getElementById("cp");
+                    const colonia = document.getElementById("colonia");
+                    const ciudad = document.getElementById("ciudad");
+                    const estado = document.getElementById("estado");
+
+                    let formIsValid = true;
+                  
+                    // Validación del nombre y apellido
+                    if (nombre.value.trim() === "") {
+                        nombre.classList.add("is-invalid");
+                        nombre.setCustomValidity("El nombre es obligatorio.");
+                        formIsValid = false;
+                    } else {
+                        nombre.classList.remove("is-invalid");
+                        nombre.setCustomValidity(""); // Resetea el mensaje de error si el campo es válido
+                    }
+                  
+                    nombre.addEventListener('input', function () {
+                        if (nombre.value.trim() !== "") {
+                            nombre.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    if (apellido.value.trim() === "") {
+                        apellido.classList.add("is-invalid");
+                        apellido.setCustomValidity("El apellido es obligatorio.");
+                        formIsValid = false;
+                    } else {
+                        apellido.classList.remove("is-invalid");
+                        apellido.setCustomValidity("");
+                    }
+
+                    apellido.addEventListener('input', function(){
+                        if(apellido.value.trim() != ""){
+                            apellido.setCustomValidity("");
+                        }
+                    })
+                    
+                  
+                    // Validación del correo electrónico
+                    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                    if (!emailPattern.test(correo.value)) {
+                        correo.classList.add("is-invalid");
+                        correo.setCustomValidity("Escribe un correo valido");
+                        formIsValid = false;
+                    } else {
+                        correo.classList.remove("is-invalid");
+                        correo.setCustomValidity("");
+                    }
+                    correo.addEventListener('input', function () {
+                        if (correo.value.trim() !== "") {
+                            correo.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    const emailPattern2 = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                    if (!emailPattern2.test(correo2.value)) {
+                        correo2.classList.add("is-invalid");
+                        correo2.setCustomValidity("Escribe un correo válido");
+                        formIsValid = false;
+                    } else {
+                        correo2.classList.remove("is-invalid");
+                        correo2.setCustomValidity("");
+                    }
+                    correo2.addEventListener('input', function () {
+                        if (correo2.value.trim() !== "") {
+                            correo2.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    // Validación de los teléfonos
+                    if (telefono.value.length != 10) {
+                        telefono.classList.add("is-invalid");
+                        telefono.setCustomValidity("Coloca 10 dígitos");
+                        formIsValid = false;
+                    } else {
+                        telefono.classList.remove("is-invalid");
+                        telefono.setCustomValidity("");
+                    }
+                    telefono.addEventListener('input', function () {
+                        if (telefono.value.trim() !== "") {
+                            telefono.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+                  
+                    //TELEFONO 2
+                    if (telefono2.value.length != 10) {
+                        telefono2.classList.add("is-invalid");
+                        telefono2.setCustomValidity("Coloca 10 dígitos");
+                        formIsValid = false;
+                    } else {
+                        telefono2.classList.remove("is-invalid");
+                        telefono2.setCustomValidity("");
+                    }
+                    telefono2.addEventListener('input', function () {
+                        if (telefono2.value.trim() !== "") {
+                            telefono2.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+/*
+                    //GENERO
+                    if (!genero.value.trim()) {
+                        genero.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        genero.classList.remove("is-invalid");
+                    }
+
+                    //ESTADO CIVIL
+                    if (!estadovil.value.trim()) {
+                        estadovil.classList.add("is-invalid");
+                        formIsValid = false;
+                    } else {
+                        estadovil.classList.remove("is-invalid");
+                    }
+
+  */                  
+                    // Validación del CURP
+                    if (curp.value.length != 18) {
+                        curp.classList.add("is-invalid");
+                        curp.setCustomValidity("Escribe los 18 caracteres");
+                        formIsValid = false;
+                    } else {
+                        curp.classList.remove("is-invalid");
+                        curp.setCustomValidity("");
+                    }
+                    curp.addEventListener('input', function () {
+                        if (curp.value.trim() !== "") {
+                            curp.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+                    // Validación del NSS
+                    if (nss.value.length !== 11) {
+                        nss.classList.add("is-invalid");
+                        nss.setCustomValidity("Escribe los 11 caracteres");
+                        formIsValid = false;
+                    } else {
+                        nss.classList.remove("is-invalid");
+                        nss.setCustomValidity("");
+                    }
+                    nss.addEventListener('input', function () {
+                        if (nss.value.trim() !== "") {
+                            nss.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    // Validación de la dirección
+                    if (calle.value.trim() === "") {
+                        calle.classList.add("is-invalid");
+                        calle.setCustomValidity("Llena el campo");
+                        formIsValid = false;
+                    } else {
+                        calle.classList.remove("is-invalid");
+                        calle.setCustomValidity("");
+                    }
+                    calle.addEventListener('input', function () {
+                        if (calle.value.trim() !== "") {
+                            calle.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    //CP
+                    if (cp.value.length !== 5) {
+                        cp.classList.add("is-invalid");
+                        cp.setCustomValidity("Escribe 5 dígitos");
+                        formIsValid = false;
+                    } else {
+                        cp.classList.remove("is-invalid");
+                        cp.setCustomValidity("");
+                    }
+                    cp.addEventListener('input', function () {
+                        if (cp.value.trim() !== "") {
+                            cp.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    //colonia
+                    if (colonia.value.trim() === "") {
+                        colonia.classList.add("is-invalid");
+                        colonia.setCustomValidity("Llena este campo");
+                        formIsValid = false;
+                    } else {
+                        colonia.classList.remove("is-invalid");
+                        colonia.setCustomValidity("");
+                    }
+                    colonia.addEventListener('input', function () {
+                        if (colonia.value.trim() !== "") {
+                            colonia.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    //CIUDAD
+                    if (ciudad.value.trim() === "") {
+                        ciudad.classList.add("is-invalid");
+                        ciudad.setCustomValidity("");
+                        formIsValid = false;
+                    } else {
+                        ciudad.classList.remove("is-invalid");
+                        ciudad.setCustomValidity("");
+                    }
+                    ciudad.addEventListener('input', function () {
+                        if (ciudad.value.trim() !== "") {
+                            ciudad.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+                    //ESTADO
+                    if (estado.value.trim() === "") {
+                        estado.classList.add("is-invalid");
+                        estado.setCustomValidity("Llena este campo");
+                        formIsValid = false;
+                    } else {
+                        estado.classList.remove("is-invalid");
+                        estado.setCustomValidity("");
+                    }
+                    estado.addEventListener('input', function () {
+                        if (estado.value.trim() !== "") {
+                            estado.setCustomValidity(""); // Limpia el mensaje de error
+                        }
+                    });
+
+
+                    // Si algún campo es inválido, muestra una alerta
+                    if (!formIsValid) {
+                        alert("Por favor, completa todos los campos correctamente.");
+                    } else {
+                        alert("Formulario enviado correctamente");
+                        form.submit(); // Envía el formulario si es válido
+                    }
+                });
+            });
+        </script>
+
+
+
         <!-- Bootstrap JS desde la carpeta local -->
+        <script>
+            tinymce.init({
+                selector: '#miTextarea',  // Aplica el editor al textarea
+                language: 'es',  // Cambia el idioma a español
+                language_url: '/tinymce/js/tinymce/langs/es.js'  // Ruta al archivo de idioma español
+            });
+        </script>
+        
         <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="javascript/script.js"></script>
+        
+  
 </body>
 </html>
