@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8"
+pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -140,17 +144,19 @@
                             <div class="form-group">
                                 <input type="text" id="nombre" name="nombre" class="form-control custom-height" placeholder="Nombre"
                                     required minlength="2" maxlength="50"
-                                    pattern="^[a-zA-Z]"
-                                    title="Introduce un nombre de al menos 2 letras y máximo 50.">
+                                    pattern="^[A-Z][a-zA-Z\s]*$"
+                                    title="Introduce un nombre que comience con una letra mayúscula y contenga solo letras y espacios.">
                             </div>
+                            
                         </div>
 
                         <!-- APELLIDO PATERNO -->
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <input type="text" class="form-control custom-height" id="apaterno"
-                                    placeholder="Apellido paterno" required minlength="2" maxlength="50"
-                                    title="Introduce un apellido paterno de al menos 2 caracteres y máximo 50.">
+                                <input type="text" class="form-control custom-height" id="apaterno"    
+                                placeholder="Apellido paterno" required minlength="2" maxlength="50"
+                                pattern="^[A-Z][a-zA-Z\s]*$"
+                                title="Introduce un nombre que comience con una letra mayúscula y contenga solo letras y espacios.">
                             </div>
                         </div>
 
@@ -163,24 +169,28 @@
                         </div>
 
                         <!-- CORREO -->
+                        <!-- CORREO -->
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <input type="email" class="form-control custom-height" id="correo"
+                                <input type="text" class="form-control custom-height" id="correo"
                                     placeholder="control@cuautla.tecnm.mx" required
-                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                    pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
                                     title="Introduce un correo electrónico válido. Ejemplo: control@cuautla.tecnm.mx">
                             </div>
                         </div>
 
-                        <!-- CORREO 2 -->
+
+                        <!-- CORREO 2 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$" -->
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <input type="email" class="form-control custom-height" id="correo2"
+                                <input type="text" class="form-control custom-height" id="correo2"
                                     placeholder="Email personal" required
-                                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                                    pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"                                    "
                                     title="Introduce un correo electrónico válido. Ejemplo: ejemplo@dominio.com">
                             </div>
                         </div>
+
+
 
                         <!-- CARRERA -->
                         <div class="col-md-4">
@@ -306,10 +316,11 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <input type="number" class="form-control custom-height" id="nss" name="nss"
-                                    placeholder="NSS" minlength="11" maxlength="11" required
-                                    title="El NSS debe tener 11 dígitos numéricos.">
+                                    placeholder="NSS" required min="10000000000" max="99999999999"
+                                    title="El NSS debe tener exactamente 11 dígitos numéricos.">
                             </div>
                         </div>
+
 
                         <hr style="border: 2px solid #000000;">
                         <!--DIRECIÓN-->
@@ -321,9 +332,11 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control custom-height" id="calle" name="calle"
                                     placeholder="Calle y Número" required minlength="5" maxlength="100"
-                                    title="Introduce la calle y número, con un mínimo de 5 caracteres.">
+                                    pattern="^[a-zA-Z0-9\s.-]+$"
+                                    title="Introduce la calle y número, utilizando solo letras, números, espacios, puntos o guiones, con un mínimo de 5 caracteres.">
                             </div>
                         </div>
+                        
                         <!--
                             <div class="col-md-4">
                                 <div class="mb-3">
@@ -335,17 +348,18 @@
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <input type="number" class="form-control custom-height" id="cp" name="cp"
-                                    placeholder="Código Postal" required minlength="5" maxlength="5"
-                                    title="Introduce un código postal de 5 dígitos." pattern="\d{5}">
+                                    placeholder="Código Postal" required min="10000" max="99999"
+                                    title="Introduce un código postal de 5 dígitos.">
                             </div>
-                        </div>
+                        </div>                        
 
                         <!-- COLONIA -->
                         <div class="col-md-4">
                             <div class="mb-3">
                                 <input type="text" class="form-control custom-height" id="colonia" name="colonia"
                                     placeholder="Colonia" required minlength="3" maxlength="50"
-                                    title="Introduce la colonia, con un mínimo de 3 caracteres.">
+                                    pattern="^[a-zA-ZÀ-ÿ\s]+$"
+                                    title="Introduce la colonia, usando solo letras y espacios, con un mínimo de 3 caracteres.">
                             </div>
                         </div>
 
@@ -354,7 +368,8 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control custom-height" id="ciudad" name="ciudad"
                                     placeholder="Ciudad" required minlength="3" maxlength="50"
-                                    title="Introduce la ciudad, con un mínimo de 3 caracteres.">
+                                    pattern="^[a-zA-ZÀ-ÿ\s]+$"
+                                    title="Introduce la ciudad, usando solo letras y espacios, con un mínimo de 3 caracteres.">
                             </div>
                         </div>
 
@@ -363,12 +378,10 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control custom-height" id="estado" name="estado"
                                     placeholder="Estado" required minlength="3" maxlength="50"
-                                    title="Introduce el estado, con un mínimo de 3 caracteres.">
+                                    pattern="^[a-zA-ZÀ-ÿ\s]+$"
+                                    title="Introduce el estado, usando solo letras y espacios, con un mínimo de 3 caracteres.">
                             </div>
                         </div>
-
-
-
 
                         <hr style="border: 2px solid #000000;">
                         <button type="submit" class="btn btn-outline-success">Registrar</button>
